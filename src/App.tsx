@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Laptop, Monitor, Wrench, ChevronRight, Keyboard, Mouse } from 'lucide-react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function useSimulatedLoading(delay = 800) {
   const [loading, setLoading] = useState(true);
@@ -566,6 +567,7 @@ export default function App() {
           <Route path="/tools/laptop-recommender" element={<LaptopRecommender />} />
         </Routes>
       </Layout>
+      <SpeedInsights />
     </Router>
   );
 }
