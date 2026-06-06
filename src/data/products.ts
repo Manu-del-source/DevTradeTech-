@@ -49,7 +49,7 @@ export const products: Product[] = [
       Display: '16.2" Liquid Retina XDR',
       Battery: 'Up to 22 hours'
     },
-    amazonLink: '#',
+    amazonLink: 'https://amzn.to/4ocPKnS',
     image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80',
     isTopPick: true
   },
@@ -69,7 +69,7 @@ export const products: Product[] = [
       Display: '15.6" OLED 3.5K',
       Battery: 'Up to 10 hours'
     },
-    amazonLink: '#',
+    amazonLink: 'https://amzn.to/4eseyVu',
     image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=800&q=80'
   },
   {
@@ -88,7 +88,7 @@ export const products: Product[] = [
       Display: '14" WUXGA Low Power',
       Battery: 'Up to 15 hours'
     },
-    amazonLink: '#',
+    amazonLink: 'https://amzn.to/43Srpu4',
     image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=800&q=80',
     isTopPick: true
   },
@@ -109,7 +109,7 @@ export const products: Product[] = [
       Refresh: '144Hz',
       Ports: 'Thunderbolt 4, HDMI, DP'
     },
-    amazonLink: '#',
+    amazonLink: 'https://amzn.to/4vB5h3p',
     image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80',
     isTopPick: true
   },
@@ -129,7 +129,7 @@ export const products: Product[] = [
       Refresh: '60Hz',
       Ports: 'USB-C (90W PD)'
     },
-    amazonLink: '#',
+    amazonLink: 'https://amzn.to/4vqQh7Y',
     image: 'https://images.unsplash.com/photo-1547119957-637f8679db1e?auto=format&fit=crop&w=800&q=80'
   },
   // Keyboards
