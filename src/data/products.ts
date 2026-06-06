@@ -80,7 +80,7 @@ export const products: Product[] = [
       Battery: 'Up to 22 hours',
       Weight: '4.7 lbs'
     },
-    amazonLink: 'https://amzn.to/4ocPKnS',
+    amazonLink: 'https://amzn.to/4fqNQh2',
     image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80',
     isTopPick: true,
     pros: [
