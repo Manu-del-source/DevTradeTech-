@@ -125,7 +125,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="pt-8 border-t border-white/[0.05] flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-xs">
             <p>© 2026 DevTradeTech. Built for professionals.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-slate-300">Privacy</a>
+              <Link to="/privacy" className="hover:text-slate-300">Privacy</Link>
               <a href="#" className="hover:text-slate-300">Terms</a>
               <a href="#" className="hover:text-slate-300">Cookies</a>
             </div>

@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { ReviewPage } from './pages/ReviewPage';
 import { ComparePage } from './pages/ComparePage';
 import { SearchPage } from './pages/SearchPage';
+import { PrivacyPage } from './pages/PrivacyPage';
 import { AnimatePresence } from 'motion/react';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
             <Route path="/reviews/:categoryId" element={<ReviewPage />} />
             <Route path="/compare" element={<ComparePage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
             {/* Redirect legacy tools path to home or new tool location */}
             <Route path="/tools/laptop-recommender" element={<HomePage />} />
           </Routes>
