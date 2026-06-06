@@ -277,7 +277,7 @@ export const products: Product[] = [
       Battery: 'Up to 70 days',
       Connection: 'Logi Bolt / BT'
     },
-    amazonLink: '#',
+    amazonLink: 'https://amzn.to/4aziaTg',
     image: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80',
     isTopPick: true,
     pros: [
