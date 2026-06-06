@@ -1,5 +1,6 @@
 import React from 'react';
-import { ExternalLink, Plus, Minus, Star, ShoppingCart } from 'lucide-react';
+import { ExternalLink, Plus, Minus, Star, ShoppingCart, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Product } from '../types';
 import { motion } from 'motion/react';
 
@@ -48,6 +49,13 @@ export function ProductCard({ product, isComparing, onCompareToggle, orientation
         </div>
         
         <p className="text-sm text-slate-400 mb-6 line-clamp-2">{product.description}</p>
+        
+        <Link 
+          to={`/review/${product.id}`}
+          className="text-teal-500 text-xs font-bold uppercase tracking-widest flex items-center gap-1 mb-6 hover:text-teal-400 transition-colors group/link"
+        >
+          Read Full Review <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+        </Link>
         
         <div className="flex flex-wrap gap-2 mb-6">
           {product.tags.map(tag => (

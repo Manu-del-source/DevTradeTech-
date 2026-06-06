@@ -1,57 +1,112 @@
-import { Product, Category, Testimonial } from '../types';
+import { Product, Category, Testimonial, Author, Guide } from '../types';
+
+export const authors: Author[] = [
+  {
+    id: 'manu-tech',
+    name: 'Manu K.',
+    role: 'Lead Tech Reviewer',
+    bio: 'Hardware enthusiast and software engineer with 10+ years of experience in building high-performance workstations.',
+    avatar: 'https://i.pravatar.cc/150?u=manu'
+  },
+  {
+    id: 'sarah-quant',
+    name: 'Sarah Chen',
+    role: 'Trading Setup Expert',
+    bio: 'Former quant trader specializing in multi-monitor configurations and low-latency peripherals.',
+    avatar: 'https://i.pravatar.cc/150?u=sarah'
+  }
+];
 
 export const categories: Category[] = [
   {
     id: 'laptops',
-    name: 'Development Laptops',
-    description: 'High-performance machines for compiling and multitasking.',
+    name: 'Laptops',
+    description: 'High-performance machines for developers and power users.',
     icon: 'Laptop',
-    path: '/reviews/best-laptops'
+    path: '/reviews/laptops'
   },
   {
     id: 'monitors',
-    name: 'Trading Monitors',
-    description: 'Ultra-wide and high-resolution displays for maximum visibility.',
+    name: 'Monitors',
+    description: 'Ultra-wide and high-resolution displays for maximum productivity.',
     icon: 'Monitor',
-    path: '/reviews/best-monitors'
+    path: '/reviews/monitors'
   },
   {
     id: 'keyboards',
-    name: 'Precision Keyboards',
-    description: 'Mechanical and ergonomic tools for long coding sessions.',
+    name: 'Keyboards',
+    description: 'Mechanical and ergonomic tools for precision typing.',
     icon: 'Keyboard',
-    path: '/reviews/best-keyboards'
+    path: '/reviews/keyboards'
   },
   {
     id: 'mice',
-    name: 'Productivity Mice',
-    description: 'High-DPI sensors and ergonomic shapes for precision.',
+    name: 'Mice',
+    description: 'High-precision sensors and ergonomic designs.',
     icon: 'Mouse',
-    path: '/reviews/best-mice'
+    path: '/reviews/mice'
+  },
+  {
+    id: 'trading-setups',
+    name: 'Trading Setups',
+    description: 'Complete workstation configurations for professional traders.',
+    icon: 'TrendingUp',
+    path: '/reviews/trading-setups'
+  },
+  {
+    id: 'accessories',
+    name: 'Accessories',
+    description: 'Essential gear from docking stations to ergonomic chairs.',
+    icon: 'Headphones',
+    path: '/reviews/accessories'
   }
 ];
 
 export const products: Product[] = [
-  // Laptops
   {
     id: 'macbook-pro-16',
-    name: 'MacBook Pro 16”',
+    name: 'MacBook Pro 16” (M4 Max)',
     description: 'The definitive choice for macOS and mobile developers seeking peak performance.',
     category: 'laptops',
     price: 2499,
     rating: 4.9,
     reviewCount: 1240,
     budgetRange: 'Premium',
-    tags: ['M4 Max', 'OLED', '22h Battery'],
+    tags: ['M4 Max', 'Liquid Retina XDR', '22h Battery'],
     specs: {
       CPU: 'Apple M4 Max',
       RAM: '32GB Unified',
       Display: '16.2" Liquid Retina XDR',
-      Battery: 'Up to 22 hours'
+      Battery: 'Up to 22 hours',
+      Weight: '4.7 lbs'
     },
     amazonLink: 'https://amzn.to/4ocPKnS',
     image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80',
-    isTopPick: true
+    isTopPick: true,
+    pros: [
+      'Industry-leading battery life',
+      'Stunning Liquid Retina XDR display',
+      'Exceptional build quality',
+      'M4 Max is a compiling beast'
+    ],
+    cons: [
+      'Very expensive entry price',
+      'Limited port selection without dongles',
+      'Not user-upgradeable'
+    ],
+    benchmarks: [
+      { label: 'Geekbench 6 Multi-Core', value: '21,000', score: 98 },
+      { label: 'Cinebench R23', value: '24,500', score: 95 }
+    ],
+    ratingBreakdown: {
+      performance: 9.8,
+      design: 9.5,
+      value: 7.5,
+      features: 9.0
+    },
+    authorId: 'manu-tech',
+    updatedAt: '2026-06-01',
+    relatedProductIds: ['dell-xps-15', 'thinkpad-x1-carbon']
   },
   {
     id: 'dell-xps-15',
@@ -70,11 +125,22 @@ export const products: Product[] = [
       Battery: 'Up to 10 hours'
     },
     amazonLink: 'https://amzn.to/4eseyVu',
-    image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=800&q=80',
+    pros: [
+      'Best-in-class Windows display',
+      'Premium build quality',
+      'Excellent keyboard and trackpad'
+    ],
+    cons: [
+      'Battery life could be better',
+      'Tends to run hot under load'
+    ],
+    updatedAt: '2026-05-15',
+    authorId: 'manu-tech'
   },
   {
     id: 'thinkpad-x1-carbon',
-    name: 'ThinkPad X1 Carbon',
+    name: 'ThinkPad X1 Carbon Gen 11',
     description: 'The legendary developer companion. Lightweight, indestructible, and best-in-class keyboard.',
     category: 'laptops',
     price: 1649,
@@ -90,12 +156,22 @@ export const products: Product[] = [
     },
     amazonLink: 'https://amzn.to/43Srpu4',
     image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=800&q=80',
-    isTopPick: true
+    isTopPick: true,
+    pros: [
+      'Incredible keyboard feel',
+      'Extremely lightweight (2.5 lbs)',
+      'Enterprise-grade security features'
+    ],
+    cons: [
+      'Integrated graphics only',
+      'OLED option drains battery fast'
+    ],
+    updatedAt: '2026-05-20',
+    authorId: 'manu-tech'
   },
-  // Monitors
   {
     id: 'lg-ultrawide-34',
-    name: 'LG Ultrawide 34”',
+    name: 'LG 34BK95U-W Ultrawide 34”',
     description: 'Expand your IDE and trading charts with this stunning Nano IPS panoramic display.',
     category: 'monitors',
     price: 799,
@@ -111,7 +187,18 @@ export const products: Product[] = [
     },
     amazonLink: 'https://amzn.to/4vB5h3p',
     image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80',
-    isTopPick: true
+    isTopPick: true,
+    pros: [
+      'Massive screen real estate',
+      'Excellent color accuracy',
+      'Single cable setup via Thunderbolt'
+    ],
+    cons: [
+      'Requires a powerful GPU for 144Hz',
+      'Stand takes up significant desk space'
+    ],
+    updatedAt: '2026-04-10',
+    authorId: 'sarah-quant'
   },
   {
     id: 'dell-ultrasharp-27',
@@ -130,9 +217,19 @@ export const products: Product[] = [
       Ports: 'USB-C (90W PD)'
     },
     amazonLink: 'https://amzn.to/4vqQh7Y',
-    image: 'https://images.unsplash.com/photo-1547119957-637f8679db1e?auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1547119957-637f8679db1e?auto=format&fit=crop&w=800&q=80',
+    pros: [
+      'IPS Black technology for deeper blacks',
+      'Incredible connectivity options',
+      'Great factory calibration'
+    ],
+    cons: [
+      'Only 60Hz refresh rate',
+      'HDR performance is limited'
+    ],
+    updatedAt: '2026-05-01',
+    authorId: 'sarah-quant'
   },
-  // Keyboards
   {
     id: 'keychron-q1-pro',
     name: 'Keychron Q1 Pro',
@@ -151,9 +248,19 @@ export const products: Product[] = [
     },
     amazonLink: '#',
     image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80',
-    isTopPick: true
+    isTopPick: true,
+    pros: [
+      'Rock-solid aluminum build',
+      'Fully customizable with QMK/VIA',
+      'Excellent wireless stability'
+    ],
+    cons: [
+      'Very heavy',
+      'High profile may require wrist rest'
+    ],
+    updatedAt: '2026-05-25',
+    authorId: 'manu-tech'
   },
-  // Mice
   {
     id: 'mx-master-3s',
     name: 'Logitech MX Master 3S',
@@ -172,7 +279,41 @@ export const products: Product[] = [
     },
     amazonLink: '#',
     image: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80',
-    isTopPick: true
+    isTopPick: true,
+    pros: [
+      'Unmatched ergonomic comfort',
+      'MagSpeed wheel is addictive',
+      'Works on virtually any surface'
+    ],
+    cons: [
+      'Not suitable for left-handed users',
+      'Micro-USB charging (S3 version)'
+    ],
+    updatedAt: '2026-06-05',
+    authorId: 'manu-tech'
+  }
+];
+
+export const guides: Guide[] = [
+  {
+    id: 'best-developer-setup-2026',
+    title: 'The Ultimate Developer Setup Guide 2026',
+    description: 'How to build a high-performance workspace that minimizes fatigue and maximizes code output.',
+    category: 'Buying Guides',
+    authorId: 'manu-tech',
+    updatedAt: '2026-06-05',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+    content: 'Full guide content goes here...'
+  },
+  {
+    id: 'trading-setup-multi-monitor',
+    title: 'Mastering the Multi-Monitor Trading Station',
+    description: 'Everything you need to know about display latency, mounting, and cable management for traders.',
+    category: 'Trading Setups',
+    authorId: 'sarah-quant',
+    updatedAt: '2026-05-28',
+    image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80',
+    content: 'Full guide content goes here...'
   }
 ];
 
