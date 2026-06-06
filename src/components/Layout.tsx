@@ -3,7 +3,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { 
   Search, Menu, X, Monitor, ChevronDown, 
   Github, Twitter, Linkedin, Mail, ExternalLink,
-  Laptop, Keyboard, Mouse, TrendingUp, Headphones, BookOpen
+  Laptop, Keyboard, Mouse, TrendingUp, Headphones, BookOpen,
+  ShieldCheck
 } from 'lucide-react';
 import { categories } from '../data/products';
 
