@@ -246,7 +246,7 @@ export const products: Product[] = [
       Switches: 'Keychron K Pro',
       Connectivity: 'Bluetooth 5.1'
     },
-    amazonLink: '#',
+    amazonLink: 'https://amzn.to/4eqCk4a',
     image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80',
     isTopPick: true,
     pros: [

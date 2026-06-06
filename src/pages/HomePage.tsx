@@ -74,7 +74,7 @@ export function HomePage() {
                   <TrendingUp size={16} className="text-teal-500" /> Trending Gear
                 </h3>
                 <div className="space-y-6">
-                  {trendingTech.slice(0, 3).map((p, i) => (
+                  {trendingTech.slice(0, 5).map((p, i) => (
                     <Link key={p.id} to={`/review/${p.id}`} className="flex items-center gap-4 group/item">
                       <div className="text-2xl font-black text-slate-800 group-hover/item:text-teal-500 transition-colors">0{i+1}</div>
                       <div>
@@ -83,26 +83,6 @@ export function HomePage() {
                       </div>
                     </Link>
                   ))}
-                </div>
-              </div>
-              
-              <div className="bg-teal-500 rounded-3xl p-8 text-[#0F172A] group relative overflow-hidden shadow-xl shadow-teal-500/20">
-                <div className="relative z-10">
-                  <h3 className="text-sm font-black uppercase tracking-[0.2em] mb-4">Newsletter</h3>
-                  <h4 className="text-2xl font-black mb-4 leading-tight">Join 12k+ Devs getting weekly gear leaks.</h4>
-                  <form className="space-y-3">
-                    <input 
-                      type="email" 
-                      placeholder="dev@example.com" 
-                      className="w-full bg-[#0F172A]/10 border border-[#0F172A]/20 rounded-xl px-4 py-3 text-xs placeholder-[#0F172A]/60 font-bold focus:outline-none focus:border-[#0F172A]/40"
-                    />
-                    <button className="w-full py-3 bg-[#0F172A] text-white rounded-xl font-black text-xs uppercase tracking-widest hover:scale-[1.02] transition-transform">
-                      Get Early Access
-                    </button>
-                  </form>
-                </div>
-                <div className="absolute -right-6 -bottom-6 text-[#0F172A]/10 rotate-12">
-                  <Mail size={120} />
                 </div>
               </div>
             </div>

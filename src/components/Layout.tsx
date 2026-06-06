@@ -223,25 +223,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </ul>
             </div>
 
-            <div className="lg:col-span-4">
-              <div className="p-8 rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.05] relative overflow-hidden group">
+            <div className="lg:col-span-6">
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.05] relative overflow-hidden group h-full">
                 <div className="absolute top-0 right-0 p-4 text-teal-500/20 group-hover:text-teal-500/40 transition-colors">
-                  <Mail size={40} />
+                  <ShieldCheck size={40} />
                 </div>
-                <h4 className="text-white font-bold mb-2">Weekly Gear Drops</h4>
-                <p className="text-xs text-slate-400 mb-6 leading-relaxed">
-                  Join 12,000+ developers getting exclusive hardware deals and benchmark reports.
+                <h4 className="text-white font-bold mb-4">Independent Publication</h4>
+                <p className="text-sm text-slate-400 leading-relaxed max-w-md">
+                  We are a strictly independent tech publication. All our benchmarks are performed in-house using standardized testing protocols to ensure you get the most accurate data for your setup.
                 </p>
-                <form className="flex gap-2">
-                  <input 
-                    type="email" 
-                    placeholder="dev@example.com" 
-                    className="flex-1 bg-[#0F172A] border border-white/[0.1] rounded-xl px-4 py-2.5 text-xs focus:outline-none focus:border-teal-500 transition-colors"
-                  />
-                  <button className="bg-teal-500 text-[#0F172A] px-4 py-2.5 rounded-xl text-xs font-bold hover:bg-teal-400 transition-colors">
-                    Join
-                  </button>
-                </form>
               </div>
             </div>
           </div>
