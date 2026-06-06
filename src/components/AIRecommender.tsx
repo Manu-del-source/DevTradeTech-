@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getRecommendation } from '../services/gemini';
-import { Sparkles, Send, Loader2 } from 'lucide-react';
+import { Sparkles, Send, Loader2, Bot, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export function AIRecommender() {
@@ -19,49 +19,64 @@ export function AIRecommender() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-12 mb-20 px-4">
-      <div className="bg-[#0f172a]/80 backdrop-blur-md rounded-2xl border border-[#38bdf8]/20 p-8 shadow-[0_0_50px_rgba(56,189,248,0.1)]">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 bg-[#38bdf8]/10 rounded-lg text-[#38bdf8]">
-            <Sparkles size={24} />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-white">AI Setup Consultant</h3>
-            <p className="text-sm text-slate-400">Describe your workflow to get expert gear advice</p>
-          </div>
-        </div>
-
-        <form onSubmit={handleSubmit} className="relative mb-8">
-          <textarea
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="e.g. I need a setup for high-frequency trading and mobile app development on a $3000 budget..."
-            className="w-full bg-[#1e293b]/50 border border-white/10 rounded-xl p-4 pr-16 text-slate-200 focus:outline-none focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8] min-h-[100px] transition-all"
-          />
-          <button
-            type="submit"
-            disabled={loading || !input.trim()}
-            className="absolute right-4 bottom-4 p-2 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#020617] rounded-lg transition-all disabled:opacity-50 disabled:hover:bg-[#38bdf8]"
-          >
-            {loading ? <Loader2 className="animate-spin" size={20} /> : <Send size={20} />}
-          </button>
-        </form>
-
-        <AnimatePresence mode="wait">
-          {recommendation && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="p-6 bg-[#1e293b]/30 rounded-xl border border-white/5 prose prose-invert max-w-none prose-sm"
-            >
-              <div dangerouslySetInnerHTML={{ __html: recommendation.replace(/\n/g, '<br/>') }} />
-              <div className="mt-4 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-slate-500 uppercase tracking-widest">
-                <span>Powered by Gemini 1.5 Flash</span>
-                <button onClick={() => setRecommendation(null)} className="hover:text-[#38bdf8]">Clear</button>
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-gradient-to-br from-[#1E293B] to-[#0F172A] rounded-3xl border border-white/[0.08] overflow-hidden shadow-2xl">
+        <div className="p-8 md:p-12">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 bg-[#14B8A6]/10 rounded-2xl flex items-center justify-center text-[#14B8A6]">
+                <Bot size={32} />
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              <div>
+                <h3 className="text-2xl font-bold text-white">AI Setup Consultant</h3>
+                <p className="text-slate-400">Get personalized gear advice powered by Gemini 1.5</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/[0.02] border border-white/[0.05] rounded-xl text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+              <Info size={14} /> Expert Knowledge Base
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#14B8A6] to-[#F59E0B] rounded-2xl blur opacity-10 group-focus-within:opacity-20 transition duration-500" />
+            <div className="relative">
+              <textarea
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Describe your workflow, budget, and specific needs (e.g. 'I need a silent setup for late-night Go development on a $2500 budget...')"
+                className="w-full bg-[#0F172A] border border-white/[0.1] rounded-2xl p-6 pr-20 text-slate-200 focus:outline-none focus:border-[#14B8A6] focus:ring-1 focus:ring-[#14B8A6] min-h-[140px] transition-all text-lg placeholder:text-slate-600"
+              />
+              <button
+                type="submit"
+                disabled={loading || !input.trim()}
+                className="absolute right-4 bottom-4 w-12 h-12 bg-[#14B8A6] hover:bg-[#0D9488] text-[#0F172A] rounded-xl transition-all flex items-center justify-center shadow-lg shadow-teal-500/20 disabled:opacity-50"
+              >
+                {loading ? <Loader2 className="animate-spin" size={24} /> : <Send size={24} />}
+              </button>
+            </div>
+          </form>
+
+          <AnimatePresence mode="wait">
+            {recommendation && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mt-12 p-8 bg-[#0F172A]/50 rounded-2xl border border-white/[0.05] relative"
+              >
+                <div className="flex items-center gap-2 text-[#F59E0B] text-xs font-bold uppercase tracking-widest mb-6">
+                  <Sparkles size={14} fill="currentColor" /> AI Verdict
+                </div>
+                <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed space-y-4">
+                  <div dangerouslySetInnerHTML={{ __html: recommendation.replace(/\n/g, '<br/>') }} />
+                </div>
+                <div className="mt-10 pt-6 border-t border-white/[0.05] flex justify-between items-center text-[10px] text-slate-600 uppercase tracking-widest font-bold">
+                  <span>Knowledge cut-off: June 2026</span>
+                  <button onClick={() => setRecommendation(null)} className="hover:text-white transition-colors">Start Over</button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

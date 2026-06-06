@@ -2,87 +2,99 @@ import React from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { PageWrapper, FadeInSection } from '../components/PageWrapper';
 import { products } from '../data/products';
-import { ArrowLeft, X, ShoppingCart } from 'lucide-react';
+import { ChevronLeft, ShoppingCart, Star } from 'lucide-react';
 
 export function ComparePage() {
   const [searchParams] = useSearchParams();
   const ids = searchParams.get('ids')?.split(',') || [];
   const compareProducts = products.filter(p => ids.includes(p.id));
 
-  // Get all unique spec keys across selected products
   const specKeys = Array.from(new Set(
     compareProducts.flatMap(p => Object.keys(p.specs))
   ));
 
   return (
     <PageWrapper>
-      <FadeInSection>
-        <Link to="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-[#38bdf8] transition-colors mb-4 text-sm font-medium">
-          <ArrowLeft size={16} /> Back to Hub
-        </Link>
-        <h1 className="!text-left !m-0 text-3xl font-bold mb-8">Hardware Comparison</h1>
+      <div className="section-spacing pt-12">
+        <FadeInSection>
+          <Link to="/" className="inline-flex items-center gap-2 text-slate-500 hover:text-[#14B8A6] transition-colors mb-6 text-sm font-medium">
+            <ChevronLeft size={16} /> Hub
+          </Link>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-12 leading-tight">Hardware Comparison</h1>
 
-        {compareProducts.length === 0 ? (
-          <div className="text-center py-20 bg-[#0f172a]/50 rounded-2xl border border-white/5">
-            <p className="text-slate-400 mb-6">No products selected for comparison.</p>
-            <Link to="/reviews/best-laptops" className="px-6 py-3 bg-[#38bdf8] text-[#020617] rounded-xl font-bold">
-              Browse Gear
-            </Link>
-          </div>
-        ) : (
-          <div className="overflow-x-auto pb-8">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr>
-                  <th className="p-4 text-left text-slate-500 font-medium border-b border-white/5 w-48">Specification</th>
-                  {compareProducts.map(p => (
-                    <th key={p.id} className="p-4 border-b border-white/5 min-w-[250px]">
-                      <div className="flex flex-col items-center gap-3">
-                        <div className="text-lg font-bold text-white text-center">{p.name}</div>
-                        <div className="text-[#38bdf8] font-bold">${p.price}</div>
-                        <a 
-                          href={p.amazonLink} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 bg-[#38bdf8]/10 text-[#38bdf8] rounded-lg text-xs font-bold flex items-center gap-2 hover:bg-[#38bdf8]/20 transition-all"
-                        >
-                          View on Amazon <ShoppingCart size={12} />
-                        </a>
-                      </div>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5">
-                <tr>
-                  <td className="p-4 font-bold text-slate-400 bg-white/[0.02]">Price</td>
-                  {compareProducts.map(p => (
-                    <td key={p.id} className="p-4 text-center font-bold text-white">${p.price}</td>
-                  ))}
-                </tr>
-                {specKeys.map(key => (
-                  <tr key={key} className="hover:bg-white/[0.01] transition-colors">
-                    <td className="p-4 font-bold text-slate-400 bg-white/[0.02]">{key}</td>
+          {compareProducts.length === 0 ? (
+            <div className="text-center py-32 card bg-white/[0.02]">
+              <p className="text-slate-400 mb-8 max-w-sm mx-auto">No products selected for comparison. Browse our reviews to find the best gear for your setup.</p>
+              <Link to="/reviews/best-laptops" className="btn-primary">
+                Browse Gear
+              </Link>
+            </div>
+          ) : (
+            <div className="overflow-x-auto pb-8 -mx-4 px-4 sm:mx-0 sm:px-0">
+              <table className="w-full border-separate border-spacing-0">
+                <thead>
+                  <tr>
+                    <th className="p-6 text-left text-slate-500 text-xs font-bold uppercase tracking-widest border-b border-white/[0.05] bg-[#0F172A] sticky left-0 z-10 w-48">Spec</th>
                     {compareProducts.map(p => (
-                      <td key={p.id} className="p-4 text-center text-slate-300 text-sm">
-                        {p.specs[key] || <span className="text-slate-600">—</span>}
+                      <th key={p.id} className="p-8 border-b border-white/[0.05] min-w-[300px] bg-[#1E293B]">
+                        <div className="flex flex-col items-center gap-4">
+                          <img src={p.image} className="w-32 h-20 object-cover rounded-lg border border-white/[0.1] shadow-lg" alt={p.name} />
+                          <div className="text-center">
+                            <div className="text-lg font-bold text-white mb-1">{p.name}</div>
+                            <div className="flex items-center justify-center gap-1 text-[#F59E0B] mb-2">
+                              <Star size={12} fill="currentColor" />
+                              <span className="text-xs font-bold">{p.rating}</span>
+                            </div>
+                            <div className="text-[#14B8A6] font-bold text-xl">${p.price}</div>
+                          </div>
+                          <a 
+                            href={p.amazonLink} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="btn-primary py-2 px-6 text-xs w-full"
+                          >
+                            Buy Now <ShoppingCart size={14} />
+                          </a>
+                        </div>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/[0.05]">
+                  <tr>
+                    <td className="p-6 font-bold text-slate-400 bg-white/[0.02] sticky left-0 z-10 text-sm">Budget Range</td>
+                    {compareProducts.map(p => (
+                      <td key={p.id} className="p-6 text-center text-white font-semibold text-sm">
+                        <span className="bg-[#14B8A6]/10 text-[#14B8A6] px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold border border-[#14B8A6]/20">
+                          {p.budgetRange}
+                        </span>
                       </td>
                     ))}
                   </tr>
-                ))}
-                <tr>
-                  <td className="p-4 font-bold text-slate-400 bg-white/[0.02]">Description</td>
-                  {compareProducts.map(p => (
-                    <td key={p.id} className="p-4 text-center text-xs text-slate-500 italic leading-relaxed">
-                      {p.description}
-                    </td>
+                  {specKeys.map(key => (
+                    <tr key={key} className="group hover:bg-white/[0.01] transition-colors">
+                      <td className="p-6 font-bold text-slate-400 bg-white/[0.02] sticky left-0 z-10 text-sm">{key}</td>
+                      {compareProducts.map(p => (
+                        <td key={p.id} className="p-6 text-center text-slate-300 text-sm">
+                          {p.specs[key] || <span className="text-slate-700">—</span>}
+                        </td>
+                      ))}
+                    </tr>
                   ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        )}
-      </FadeInSection>
+                  <tr>
+                    <td className="p-6 font-bold text-slate-400 bg-white/[0.02] sticky left-0 z-10 text-sm">Expert Verdict</td>
+                    {compareProducts.map(p => (
+                      <td key={p.id} className="p-8 text-center text-xs text-slate-400 italic leading-relaxed max-w-[300px] mx-auto">
+                        {p.description}
+                      </td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
+        </FadeInSection>
+      </div>
     </PageWrapper>
   );
 }

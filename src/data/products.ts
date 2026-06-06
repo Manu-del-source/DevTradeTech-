@@ -1,31 +1,31 @@
-import { Product, Category } from '../types';
+import { Product, Category, Testimonial } from '../types';
 
 export const categories: Category[] = [
   {
     id: 'laptops',
-    name: 'Best Laptops for Programming',
-    description: 'Top picks for coding and development',
+    name: 'Development Laptops',
+    description: 'High-performance machines for compiling and multitasking.',
     icon: 'Laptop',
     path: '/reviews/best-laptops'
   },
   {
     id: 'monitors',
-    name: 'Best Monitors for Trading',
-    description: 'Ultrawide and multi-monitor setups',
+    name: 'Trading Monitors',
+    description: 'Ultra-wide and high-resolution displays for maximum visibility.',
     icon: 'Monitor',
     path: '/reviews/best-monitors'
   },
   {
     id: 'keyboards',
-    name: 'Best Keyboards for Coding',
-    description: 'Mechanical and ergonomic picks',
+    name: 'Precision Keyboards',
+    description: 'Mechanical and ergonomic tools for long coding sessions.',
     icon: 'Keyboard',
     path: '/reviews/best-keyboards'
   },
   {
     id: 'mice',
-    name: 'Best Mice for Productivity',
-    description: 'Precision and comfort for long sessions',
+    name: 'Productivity Mice',
+    description: 'High-DPI sensors and ergonomic shapes for precision.',
     icon: 'Mouse',
     path: '/reviews/best-mice'
   }
@@ -35,131 +35,167 @@ export const products: Product[] = [
   // Laptops
   {
     id: 'macbook-pro-16',
-    name: 'MacBook Pro 16” (2026)',
-    description: 'Great for macOS development and high-performance tasks.',
+    name: 'MacBook Pro 16”',
+    description: 'The definitive choice for macOS and mobile developers seeking peak performance.',
     category: 'laptops',
     price: 2499,
+    rating: 4.9,
+    reviewCount: 1240,
+    budgetRange: 'Premium',
+    tags: ['M4 Max', 'OLED', '22h Battery'],
     specs: {
       CPU: 'Apple M4 Max',
       RAM: '32GB Unified',
       Display: '16.2" Liquid Retina XDR',
       Battery: 'Up to 22 hours'
     },
-    amazonLink: '#'
+    amazonLink: '#',
+    image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80',
+    isTopPick: true
   },
   {
     id: 'dell-xps-15',
     name: 'Dell XPS 15',
-    description: 'Powerful Windows laptop for coding and professional creative work.',
+    description: 'A masterpiece of Windows engineering, balancing power with a stunning InfinityEdge display.',
     category: 'laptops',
     price: 1899,
+    rating: 4.7,
+    reviewCount: 850,
+    budgetRange: 'Premium',
+    tags: ['Intel i9', 'OLED', 'CNC Aluminum'],
     specs: {
       CPU: 'Intel Core i9-13900H',
       RAM: '32GB DDR5',
       Display: '15.6" OLED 3.5K',
       Battery: 'Up to 10 hours'
     },
-    amazonLink: '#'
+    amazonLink: '#',
+    image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'thinkpad-x1-carbon',
-    name: 'Lenovo ThinkPad X1 Carbon',
-    description: 'Lightweight, durable, and the gold standard for developer keyboards.',
+    name: 'ThinkPad X1 Carbon',
+    description: 'The legendary developer companion. Lightweight, indestructible, and best-in-class keyboard.',
     category: 'laptops',
     price: 1649,
+    rating: 4.8,
+    reviewCount: 920,
+    budgetRange: 'Mid-Range',
+    tags: ['Ultra Light', 'Classic Keyboard', 'LTE'],
     specs: {
       CPU: 'Intel Core i7-1365U',
       RAM: '16GB LPDDR5',
       Display: '14" WUXGA Low Power',
       Battery: 'Up to 15 hours'
     },
-    amazonLink: '#'
+    amazonLink: '#',
+    image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=800&q=80',
+    isTopPick: true
   },
   // Monitors
   {
     id: 'lg-ultrawide-34',
     name: 'LG Ultrawide 34”',
-    description: 'Perfect for multi-tasking screens and wide IDE views.',
+    description: 'Expand your IDE and trading charts with this stunning Nano IPS panoramic display.',
     category: 'monitors',
     price: 799,
+    rating: 4.6,
+    reviewCount: 540,
+    budgetRange: 'Mid-Range',
+    tags: ['21:9', 'IPS', 'USB-C PD'],
     specs: {
       Resolution: '3440 x 1440',
       Panel: 'Nano IPS',
       Refresh: '144Hz',
       Ports: 'Thunderbolt 4, HDMI, DP'
     },
-    amazonLink: '#'
+    amazonLink: '#',
+    image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80',
+    isTopPick: true
   },
   {
     id: 'dell-ultrasharp-27',
-    name: 'Dell UltraSharp 27”',
-    description: 'High-resolution for crisp visuals and color accuracy.',
+    name: 'Dell UltraSharp 27” 4K',
+    description: 'Unmatched color accuracy and 4K clarity for precision-oriented workflows.',
     category: 'monitors',
     price: 549,
+    rating: 4.8,
+    reviewCount: 1100,
+    budgetRange: 'Mid-Range',
+    tags: ['4K', 'IPS Black', 'USB Hub'],
     specs: {
-      Resolution: '3840 x 2160 (4K)',
+      Resolution: '3840 x 2160',
       Panel: 'IPS Black',
       Refresh: '60Hz',
-      Ports: 'USB-C (90W PD), HDMI, DP'
+      Ports: 'USB-C (90W PD)'
     },
-    amazonLink: '#'
-  },
-  {
-    id: 'samsung-odyssey-g7',
-    name: 'Samsung Odyssey G7 32”',
-    description: 'Curved display for immersive focus and high refresh rate.',
-    category: 'monitors',
-    price: 699,
-    specs: {
-      Resolution: '2560 x 1440',
-      Panel: 'QLED',
-      Refresh: '240Hz',
-      Ports: 'HDMI 2.1, DP 1.4'
-    },
-    amazonLink: '#'
+    amazonLink: '#',
+    image: 'https://images.unsplash.com/photo-1547119957-637f8679db1e?auto=format&fit=crop&w=800&q=80'
   },
   // Keyboards
   {
     id: 'keychron-q1-pro',
     name: 'Keychron Q1 Pro',
-    description: 'Premium wireless mechanical keyboard with full aluminum body.',
+    description: 'A heavy-duty aluminum mechanical keyboard that redefines the typing experience.',
     category: 'keyboards',
     price: 199,
+    rating: 4.9,
+    reviewCount: 320,
+    budgetRange: 'Premium',
+    tags: ['Full Metal', 'QMK/VIA', 'Wireless'],
     specs: {
-      Type: 'Mechanical (Hotswap)',
+      Type: 'Mechanical',
       Layout: '75%',
-      Connectivity: 'Bluetooth / USB-C',
-      Switches: 'Keychron K Pro'
+      Switches: 'Keychron K Pro',
+      Connectivity: 'Bluetooth 5.1'
     },
-    amazonLink: '#'
-  },
-  {
-    id: 'mx-mechanical',
-    name: 'Logitech MX Mechanical',
-    description: 'Low-profile tactile switches for productivity and quiet typing.',
-    category: 'keyboards',
-    price: 169,
-    specs: {
-      Type: 'Mechanical (Low Profile)',
-      Layout: 'Full Size / Mini',
-      Connectivity: 'Logi Bolt / Bluetooth',
-      Switches: 'Tactile Quiet / Clicky'
-    },
-    amazonLink: '#'
+    amazonLink: '#',
+    image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80',
+    isTopPick: true
   },
   // Mice
   {
     id: 'mx-master-3s',
     name: 'Logitech MX Master 3S',
-    description: 'The industry standard for productivity and ergonomics.',
+    description: 'The ergonomic standard for professionals. Quiet clicks and an electromagnetic scroll wheel.',
     category: 'mice',
     price: 99,
+    rating: 4.9,
+    reviewCount: 4500,
+    budgetRange: 'Mid-Range',
+    tags: ['Ergonomic', 'MagSpeed', 'Quiet'],
     specs: {
-      Sensor: '8000 DPI Darkfield',
+      Sensor: '8000 DPI',
       Buttons: '7 Customizable',
-      Connectivity: 'Logi Bolt / Bluetooth',
-      Battery: 'Up to 70 days'
+      Battery: 'Up to 70 days',
+      Connection: 'Logi Bolt / BT'
     },
-    amazonLink: '#'
+    amazonLink: '#',
+    image: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=800&q=80',
+    isTopPick: true
+  }
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    id: '1',
+    name: 'Alex Rivera',
+    role: 'Senior Fullstack Engineer',
+    content: 'DevTradeTech helped me build a workspace that actually reduced my fatigue. Their monitor recommendations are spot on for multi-IDE setups.',
+    avatar: 'https://i.pravatar.cc/150?u=alex'
+  },
+  {
+    id: '2',
+    name: 'Sarah Chen',
+    role: 'Quant Trader',
+    content: 'The comparison tool is a lifesaver. Being able to see display latency and refresh rates side-by-side saved me hours of research.',
+    avatar: 'https://i.pravatar.cc/150?u=sarah'
+  },
+  {
+    id: '3',
+    name: 'Marcus Thorne',
+    role: 'DevOps Lead',
+    content: 'I trust their Top Picks. The ThinkPad X1 Carbon review convinced me to switch, and it\'s the best decision I\'ve made for my remote setup.',
+    avatar: 'https://i.pravatar.cc/150?u=marcus'
   }
 ];
